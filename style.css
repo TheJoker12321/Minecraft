@@ -1,0 +1,50 @@
+body {
+    height: 100vh;
+}
+
+#menuOption {
+
+    position: fixed;
+    top: 1%;
+    left: 2%;
+
+}
+
+#tools button {
+
+    background: none;
+    border: none;
+}
+
+#tools {
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 5%;
+
+
+}
+
+
+
+main {
+    height: 100%;
+    width: 100%;
+}
+
+#board-game {
+
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(50, 3rem);
+    grid-template-rows: repeat(20, 3rem);
+}
+
+/* #board-game :hover {
+
+    background-color: black;
+    border: 1.5px solid black;
+
+} */
