@@ -14,6 +14,7 @@ body {
 
     background: none;
     border: none;
+    padding: 0%;
 }
 
 #tools {
@@ -21,12 +22,40 @@ body {
     position: fixed;
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     top: 5%;
+    left: 1.5rem;
 
 
 }
 
+/* #axe {
 
+    background-image: url('./images/toolsImages/axe.png');
+}
+
+#shovel {
+
+    background-image: url('./images/toolsImages/shovel.png');
+
+}
+
+#shears {
+
+    background-image: url('./images/toolsImages/shears.png');
+}
+
+#pickaxe {
+
+    background-color: black;
+    background-image: url('./images/toolsImages/pickaxe.png');
+}
+
+.tools {
+
+    height: 3rem;
+    width: 3rem;
+} */
 
 main {
     height: 100%;
@@ -42,9 +71,10 @@ main {
     grid-template-rows: repeat(20, 3rem);
 }
 
-/* #board-game :hover {
 
-    background-color: black;
+
+#board-game div :hover {
+
     border: 1.5px solid black;
 
-} */
+}

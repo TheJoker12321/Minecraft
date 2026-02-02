@@ -47,37 +47,50 @@ function addImage(div) {
     
     if (div.classList.value === 'tree') {
 
-        img.src = './images/tree.png'
-        div.append(img)
+        div.style.backgroundImage = 'url("./images/tree.png")'
+        div.style.backgroundPosition = 'center'
+        div.style.backgroundRepeat = 'no-repeat'
+        div.style.backgroundSize = 'cover'
 
     } else if (div.classList.value === 'land') {
 
-        img.src = './images/land.png'
-        div.append(img)
+        div.style.backgroundImage = 'url("./images/land.png")'
+        div.style.backgroundPosition = 'center'
+        div.style.backgroundRepeat = 'no-repeat'
+        div.style.backgroundSize = 'cover'
 
     } else if (div.classList.value === 'up-land') {
 
-        img.src = './images/up-land.png'
-        div.append(img)
+        div.style.backgroundImage = 'url("./images/up-land.png")'
+        div.style.backgroundPosition = 'center'
+        div.style.backgroundRepeat = 'no-repeat'
+        div.style.backgroundSize = 'cover'
 
     } else if (div.classList.value === 'wall') {
 
-        img.src = './images/wall.png'
-        div.append(img)
+        div.style.backgroundImage = 'url("./images/wall.png")'
+        div.style.backgroundPosition = 'center'
+        div.style.backgroundRepeat = 'no-repeat'
+        div.style.backgroundSize = 'cover'
 
     } else if (div.classList.value === 'race') {
 
-        img.src = './images/race.png'
-        div.append(img)
+        div.style.backgroundImage = 'url("./images/race.png")'
+        div.style.backgroundPosition = 'center'
+        div.style.backgroundRepeat = 'no-repeat'
+        div.style.backgroundSize = 'cover'
 
     } else if (div.classList.value === 'black-wall') {
 
-        img.src = './images/black-wall.png'
-        div.append(img)
+        div.style.backgroundImage = 'url("./images/black-wall.png")'
+        div.style.backgroundPosition = 'center'
+        div.style.backgroundRepeat = 'no-repeat'
+        div.style.backgroundSize = 'cover'
      
     } else {
 
-        document.getElementById(`${div.id}`).innerHTML = ''
+        div.backgroundImage = 'none'
+        div.style.backgroundColor = '#87ceeb'
     }
 }
 
@@ -235,18 +248,36 @@ function createLeaves(idUpRace) {
 
 function click(){
 
-    let pointers = document.getElementsByClassName('axe')
+    let tools = document.getElementsByClassName('tools')
 
-    for (const pointer of pointers) {
+    for (const pointer of tools) {
 
-        document.addEventListener('click', () => {
+        pointer.addEventListener('click', () => {
+            // pointer.style.cursor = `url("./images/toolsImages/${pointer.id}.png"), auto`;
+            document.body.style.cursor = `url("./images/toolsImages/${pointer.id}.png"), auto`;
 
-            pointer.style.cursor = 'url("./images/toolsImages/axe.png"), auto';
-        
         })
     }
+
 }
 
+function changeImg() {
+
+    document.addEventListener('click', (event) => {
+
+        if (event.target.classList.value === 'race' && document.body.style.cursor === `url("./images/toolsImages/axe.png"), auto`) {
+            
+            event.target.classList = 'block'
+            addImage(event.target)
+
+        }
+
+        console.log(event.target);
+        
+    })
+}
+
+changeImg()
 click()
 
 
