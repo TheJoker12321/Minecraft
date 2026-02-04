@@ -29,33 +29,7 @@ body {
 
 }
 
-/* #axe {
 
-    background-image: url('./images/toolsImages/axe.png');
-}
-
-#shovel {
-
-    background-image: url('./images/toolsImages/shovel.png');
-
-}
-
-#shears {
-
-    background-image: url('./images/toolsImages/shears.png');
-}
-
-#pickaxe {
-
-    background-color: black;
-    background-image: url('./images/toolsImages/pickaxe.png');
-}
-
-.tools {
-
-    height: 3rem;
-    width: 3rem;
-} */
 
 main {
     height: 100%;
@@ -73,8 +47,4 @@ main {
 
 
 
-#board-game div :hover {
 
-    border: 1.5px solid black;
-
-}

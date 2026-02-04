@@ -1,6 +1,10 @@
 let id = 1
 let rowGrid = 1
 let columnGrid = 1
+let trees = 0
+let recas = 0
+let lands = 0
+let walls = 0
 
 function createBlock() {
 
@@ -11,6 +15,14 @@ function createBlock() {
         div.classList = 'block'
         div.style.width = '3rem'
         div.style.height = '3rem'
+        div.onmouseover = function() {
+
+            div.style.border = "2.5px solid black"
+        }
+        div.onmouseout = function() {
+
+            div.style.border = "none"
+        }
         addToGrid(div)
         div.style.backgroundColor = '#87ceeb' 
         div.style.border = 'none'
@@ -135,7 +147,7 @@ function checkIdToImage(div) {
 }
 
 
-function createTree( distanceBefore) {
+function createTree(distanceBefore) {
 
     let flag = true
     let distance = 0
@@ -261,14 +273,51 @@ function click(){
 
 }
 
+function changeCss(target) {
+
+    target.className = 'sky'
+    target.style.backgroundImage = 'none'
+    target.style.backgroundColor = '#87ceeb'
+}
+
+function createBackgroundImage(elem, pathImage) {
+
+    elem.style.backgroundImage = `url(./images/${pathImage}.png)`
+    elem.style.backgroundImage = 'center'
+    elem.style.backgroundPosition = 'no-reapet'
+    elem.style.backgroundRepeat = 'cover'
+}
+
 function changeImg() {
 
     document.addEventListener('click', (event) => {
 
         if (event.target.classList.value === 'race' && document.body.style.cursor === `url("./images/toolsImages/axe.png"), auto`) {
             
-            event.target.classList = 'block'
-            addImage(event.target)
+            changeCss(event.target)
+            races += 1 
+        
+        } else if (event.target.classList.value === 'tree' && document.body.style.cursor === `url("./images/toolsImages/shears.png"), auto`) {
+
+            changeCss(event.target) 
+            trees += 1
+
+        } else if ((event.target.classList.value === 'land' || event.target.classList.value === 'up-land') && document.body.style.cursor === `url("./images/toolsImages/shovel.png"), auto`) {
+
+            changeCss(event.target)
+            lands += 1
+        } else if ((event.target.classList.value === 'wall' || event.target.classList.value === 'black-wall') && document.body.style.cursor === `url("./images/toolsImages/pickaxe.png"), auto`) {
+
+            changeCss(event.target)
+            walls += 1
+            if (walls === 1) {
+                const board = document.getElementById('tools')
+                const button = document.createElement('button')
+                button.style.height = '100%'
+                button.style.width = '100%'
+                createBackgroundImage(button, 'wall')
+                board.append(button)
+            }
 
         }
 
@@ -277,11 +326,11 @@ function changeImg() {
     })
 }
 
+console.log(walls);
 changeImg()
 click()
-
-
 createBlock()
+
 
 
 
